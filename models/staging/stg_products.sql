@@ -1,7 +1,7 @@
 with products as (
     
     select
-        cast(products_id as string) as products_id,
+        cast(product_id as string) as product_id,
         product_name,
         cast(brand_id as string) as brand_id,
         cast(category_id as string) as category_id,
