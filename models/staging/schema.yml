@@ -62,7 +62,7 @@ models:
         data_type: integer
   
   - name: stg_order_items
-    description: "details about the order"
+    description: "details about products on the order"
     columns:
       - name: order_id__item_id
         description: "concatenation order_id and item_id"
@@ -88,3 +88,37 @@ models:
       - name: discount
         description: "discount on the order"
         data_type: float
+      
+  - name: stg_orders
+    description: "details about the order"
+    columns:
+      - name: order_id
+        description: "unique identifier of the order"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "unique identifier of the order"
+        data_type: string
+      - name: order_status
+        description: "status of the order"
+        data_type: string
+        tests:
+          - accepted_values:
+              values: [1,2,3,4]
+      - name: order_date
+        description: "date of the order"
+        data_type: date
+      - name: required_date
+        description: ""
+        data_type: date
+      - name: shipped_date
+        description: "date of shipping"
+        data_type: date
+      - name: store_id
+        description: "store identifier"
+        data_type: string
+      - name: staff_id
+        description: "staff identifier"
+        data_type: string
