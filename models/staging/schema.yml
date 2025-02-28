@@ -1,0 +1,230 @@
+version: 2
+
+models:
+  - name: stg_brands
+    description: "list of bike brands"
+    columns:
+      - name: brand_id
+        description: "unique id for the brand"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: brand_name
+        description: "name associate to the id"
+        data_type: string
+
+  - name: stg_categories
+    description: "category of bike"
+    columns:
+      - name: category_id
+        description: "unique id for the category"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: category_name
+        description: "name associate for the category id"
+        data_type: string
+
+  - name: stg_customers
+    description: "informations about customers"
+    columns:
+      - name: customer_id
+        description: "unique id for the customer"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "first customer name"
+        data_type: string
+      - name: last_name
+        description: "last customer name"
+        data_type: string
+      - name: phone
+        description: "US phone customer number"
+        data_type: string
+      - name: email
+        description: "customer email"
+        data_type: string
+      - name: street
+        description: "customer street living"
+        data_type: string
+      - name: city
+        description: "customer city living"
+        data_type: string
+      - name: state
+        description: "customer 2 letters state living"
+        data_type: string
+      - name: zip_code
+        description: "customer postal code (5 numbers)"
+        data_type: string
+  
+  - name: stg_order_items
+    description: "details about products on the order"
+    columns:
+      - name: order_id__item_id
+        description: "concatenation order_id and item_id"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "unique id for the order"
+        data_type: string
+      - name: item_id
+        description: "item id"
+        data_type: string
+      - name: product_id
+        description: "product id"
+        data_type: string
+      - name: quantity
+        description: "amount of product by order"
+        data_type: int
+      - name: list_price
+        description: "price"
+        data_type: float
+      - name: discount
+        description: "discount on the order"
+        data_type: float
+      
+  - name: stg_orders
+    description: "details about the order"
+    columns:
+      - name: order_id
+        description: "unique identifier of the order"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "unique identifier of the order"
+        data_type: string
+      - name: order_status
+        description: "status of the order"
+        data_type: string
+        tests:
+          - accepted_values:
+              values: [1,2,3,4]
+      - name: order_date
+        description: "date of the order"
+        data_type: date
+      - name: required_date
+        description: ""
+        data_type: date
+      - name: shipped_date
+        description: "date of shipping"
+        data_type: date
+      - name: store_id
+        description: "store identifier"
+        data_type: string
+      - name: staff_id
+        description: "staff identifier"
+        data_type: string
+
+  - name: stg_products
+    description: "details of products"
+    columns:
+      - name: product_id
+        description: "unique identifier of the product"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "name of the product"
+        data_type: string
+      - name: brand_id
+        description: "identifier of the brand"
+        data_type: string
+      - name: category_id
+        description: "identifier of the product category"
+        data_type: string
+      - name: model_year
+        description: "year of the model of theproduct"
+        data_type: integer
+      - name: model_year
+        description: "price"
+        data_type: float
+
+  - name: stg_staffs
+    description: "table with employees data"
+    columns:
+      - name: staff_id
+        description: "unique identifier of the employee"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: ""
+        data_type: string
+      - name: last_name
+        description: ""
+        data_type: string
+      - name: email
+        description: "employee email"
+        data_type: string
+      - name: phone
+        description: "employee phone"
+        data_type: string
+      - name: active
+        description: "employee wotk still here?"
+        data_type: integer
+      - name: store_id
+        description: "store identifier"
+        data_type: string
+      - name: manager_id
+        description: "manager identifier"
+        data_type: string
+
+  - name: stg_stocks
+    description: "table with store stocks informations"
+    columns:
+      - name: store_id__product_id
+        description: "unique identifier of the store and the product"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        description: "unique identifier of the store"
+        data_type: string
+      - name: product_id
+        description: "identifier of the product"
+        data_type: string
+      - name: quantity
+        description: "quantity in stocks"
+        data_type: integer
+
+  - name: stg_stores
+    description: "table with stores data"
+    columns:
+      - name: store_id
+        description: "unique identifier of the store"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: store_name
+        description: "name of the store"
+        data_type: string
+      - name: phone
+        description: "employee phone"
+        data_type: string
+      - name: email
+        description: "employee email"
+        data_type: string
+      - name: street
+        description: "store street"
+        data_type: string
+      - name: city
+        description: "store city"
+        data_type: string
+      - name: state
+        description: "store 2 letters state"
+        data_type: string
+      - name: zip_code
+        description: "customer postal code (5 numbers)"
+        data_type: string
