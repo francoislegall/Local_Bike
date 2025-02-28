@@ -182,12 +182,15 @@ models:
   - name: stg_stocks
     description: "table with store stocks informations"
     columns:
-      - name: store_id
-        description: "unique identifier of the store"
+      - name: store_id__product_id
+        description: "unique identifier of the store and the product"
         data_type: string
         tests:
           - unique
           - not_null
+      - name: store_id
+        description: "unique identifier of the store"
+        data_type: string
       - name: product_id
         description: "identifier of the product"
         data_type: string
@@ -195,7 +198,7 @@ models:
         description: "quantity in stocks"
         data_type: integer
 
- - name: stg_stores
+  - name: stg_stores
     description: "table with stores data"
     columns:
       - name: store_id
