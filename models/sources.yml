@@ -1,0 +1,14 @@
+sources:  
+  
+  - name: local_bike #nom que l'on souhaite donner à la table dans dbt
+    schema: local_bike # schema où sont stockées les tabmes dans big query
+    tables: # Liste des tables que l'on souhaite récupérer
+      - name: brands
+      - name: categories
+      - name: customers
+      - name: order_items
+      - name: orders
+      - name: products
+      - name: staffs
+      - name: stocks
+      - name: stores
