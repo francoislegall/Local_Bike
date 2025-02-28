@@ -59,7 +59,7 @@ models:
         data_type: string
       - name: zip_code
         description: "customer postal code (5 numbers)"
-        data_type: integer
+        data_type: string
   
   - name: stg_order_items
     description: "details about products on the order"
@@ -167,7 +167,7 @@ models:
         description: "employee email"
         data_type: string
       - name: phone
-        description: "employee email"
+        description: "employee phone"
         data_type: string
       - name: active
         description: "employee wotk still here?"
@@ -194,3 +194,34 @@ models:
       - name: quantity
         description: "quantity in stocks"
         data_type: integer
+
+ - name: stg_stores
+    description: "table with stores data"
+    columns:
+      - name: store_id
+        description: "unique identifier of the store"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: store_name
+        description: "name of the store"
+        data_type: string
+      - name: phone
+        description: "employee phone"
+        data_type: string
+      - name: email
+        description: "employee email"
+        data_type: string
+      - name: street
+        description: "store street"
+        data_type: string
+      - name: city
+        description: "store city"
+        data_type: string
+      - name: state
+        description: "store 2 letters state"
+        data_type: string
+      - name: zip_code
+        description: "customer postal code (5 numbers)"
+        data_type: string

@@ -9,7 +9,7 @@ with customers as (
         street,
         city,
         state,
-        zip_code
+        cast(zip_code as string) as zip_code
     from {{source("local_bike","customers")}}
 )
 
