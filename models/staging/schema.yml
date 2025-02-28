@@ -147,3 +147,34 @@ models:
       - name: model_year
         description: "price"
         data_type: float
+
+  - name: stg_staffs
+    description: "table with employees data"
+    columns:
+      - name: staff_id
+        description: "unique identifier of the employee"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: ""
+        data_type: string
+      - name: last_name
+        description: ""
+        data_type: string
+      - name: email
+        description: "employee email"
+        data_type: string
+      - name: phone
+        description: "employee email"
+        data_type: string
+      - name: active
+        description: "employee wotk still here?"
+        data_type: integer
+      - name: store_id
+        description: "store identifier"
+        data_type: string
+      - name: manager_id
+        description: "manager identifier"
+        data_type: string

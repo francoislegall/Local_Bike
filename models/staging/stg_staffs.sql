@@ -8,7 +8,7 @@ with staffs as (
         phone,
         active,
         cast(store_id as string) as store_id,
-        manager_id
+        case when manager_id ='NULL' then null else manager_id end as manager_id,
     from {{source("local_bike","staffs")}}
 )
 
