@@ -2,7 +2,7 @@ with staffs as (
     
     select
         cast(staff_id as string) as staff_id,
-        first name,
+        first_name,
         last_name,
         email,
         phone,
