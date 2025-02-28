@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_brands
+    description: "list of bike brands"
+    columns:
+      - name: brand_id
+        description: "unique id for the brand"
+        data_type: integer
+        tests:
+          - unique
+          - not_null
+      - name: brand_name
+        description: "name associate to the id"
+        data_type: string
+
+  - name: stg_categories
+    description: "category of bike"
+    columns:
+      - name: category_id
+        description: "unique if for the category"
+        data_type: integer
+        tests:
+          - unique
+          - not_null
+      - name: category_name
+        description: "name associate for the category id"
+        data_type: string
