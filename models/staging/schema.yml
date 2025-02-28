@@ -178,3 +178,19 @@ models:
       - name: manager_id
         description: "manager identifier"
         data_type: string
+
+  - name: stg_stocks
+    description: "table with store stocks informations"
+    columns:
+      - name: store_id
+        description: "unique identifier of the store"
+        data_type: string
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "identifier of the product"
+        data_type: string
+      - name: quantity
+        description: "quantity in stocks"
+        data_type: integer
