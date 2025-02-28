@@ -1,7 +1,7 @@
 with categories as (
     
     select
-        category_id,
+        cast(category_id as string) as category_id,
         category_name
     from {{source("local_bike","categories")}}
 )

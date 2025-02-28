@@ -1,7 +1,7 @@
 with brands as (
     
     select
-        brand_id,
+        cast(brand_id as string) as brand_id,
         brand_name
     from {{source("local_bike","brands")}}
 )
