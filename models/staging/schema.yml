@@ -86,7 +86,7 @@ models:
         description: "price"
         data_type: float
       - name: discount
-        description: "discount on the order"
+        description: "discount on the order ex: -5% = 0.05"
         data_type: float
       
   - name: stg_orders
